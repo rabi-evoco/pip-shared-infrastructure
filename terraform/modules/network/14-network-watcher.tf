@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "network_watcher_storage" {
-  name                = "hmiapimwatcher${var.environment}"
+  name                = "pipapimwatcher${var.environment}"
   resource_group_name = var.resource_group
   location            = var.location
   tags                = var.tags

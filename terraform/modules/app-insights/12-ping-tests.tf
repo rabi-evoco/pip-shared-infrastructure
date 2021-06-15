@@ -8,7 +8,7 @@ resource "azurerm_template_deployment" "web-test" {
     pingTestName    = "${lookup(var.ping_tests[count.index], "pingTestName")}-${var.environment}"
     pingTestURL     = lookup(var.ping_tests[count.index], "pingTestURL")
     pingText        = lookup(var.ping_tests[count.index], "pingText")
-    actionGroupId   = azurerm_monitor_action_group.hmi-action-group.id
+    actionGroupId   = azurerm_monitor_action_group.pip-action-group.id
     location        = var.location
     severity        = var.environment == "sbox" || var.environment == "dev" || var.environment == "test" ? 3 : 0
     environment     = var.tags.environment

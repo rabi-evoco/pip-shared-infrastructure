@@ -40,9 +40,9 @@ jobs:
   - template: ../steps/create-rg.yaml
     parameters:
       subscription: ${{ parameters.subscription }}
-      resourceGroup: hmi-sharedinfra-${{ parameters.environment }}-rg
-      storageAccount: hmiapiminfra${{ parameters.environment }}sa
-      policiesAccount: hmiapimpolicies${{ parameters.environment }}sa
+      resourceGroup: pip-sharedinfra-${{ parameters.environment }}-rg
+      storageAccount: pipapiminfra${{ parameters.environment }}sa
+      policiesAccount: pipapimpolicies${{ parameters.environment }}sa
       location: ${{ parameters.location }}
       environment: ${{ parameters.environment }}
       builtFrom: ${{ parameters.builtFrom }}

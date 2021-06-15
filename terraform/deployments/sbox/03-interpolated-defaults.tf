@@ -7,13 +7,13 @@ data "azurerm_virtual_network" "aks" {
   resource_group_name = data.azurerm_resource_group.aks.name
 }
 
-data "azurerm_resource_group" "hmi" {
-  name = "hmi-sharedinfra-${var.environment}-rg"
+data "azurerm_resource_group" "pip" {
+  name = "pip-sharedinfra-${var.environment}-rg"
 }
 
-data "azurerm_virtual_network" "hmi" {
-  name                = "hmi-sharedinfra-vnet-${var.environment}"
-  resource_group_name = data.azurerm_resource_group.hmi.name
+data "azurerm_virtual_network" "pip" {
+  name                = "pip-sharedinfra-vnet-${var.environment}"
+  resource_group_name = data.azurerm_resource_group.pip.name
 }
 
 # Generic locals

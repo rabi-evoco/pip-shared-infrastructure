@@ -32,7 +32,7 @@ if (!(Get-Module -Name Az.MonitoringSolutions)){
     }
 
 $subscriptionName = "dts-sharedservices-"+$environment
-$ResourceGroupName = "hmi-sharedinfra-"+$environment+"-rg"
+$ResourceGroupName = "pip-sharedinfra-"+$environment+"-rg"
 
 $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
 
@@ -50,14 +50,14 @@ if($environment -ieq "sbox")
     else { Write-Host "Workspace not set." }
 
 Write-Host "Starting script"
-if(!(Get-AzInsightsPrivateLinkScope -Name "$("hmi-apim-ampls-" + $environment)" -ResourceGroupName $ResourceGroupName -ErrorAction SilentlyContinue)){
-    $virtualNetwork = Get-AzVirtualNetwork -ResourceName "$("hmi-sharedinfra-vnet-" + $environment)" -ResourceGroupName $ResourceGroupName
+if(!(Get-AzInsightsPrivateLinkScope -Name "$("pip-apim-ampls-" + $environment)" -ResourceGroupName $ResourceGroupName -ErrorAction SilentlyContinue)){
+    $virtualNetwork = Get-AzVirtualNetwork -ResourceName "$("pip-sharedinfra-vnet-" + $environment)" -ResourceGroupName $ResourceGroupName
     $subnet = $virtualNetwork | Select-Object -ExpandProperty subnets | Where-Object Name -like 'mgmt-subnet-*'
 
     Write-Host "Create Azure Monitor Private Link Scope"
-    $linkScope=(New-AzInsightsPrivateLinkScope -Location "global" -ResourceGroupName $ResourceGroupName -Name "$("hmi-apim-ampls-" + $environment)")
+    $linkScope=(New-AzInsightsPrivateLinkScope -Location "global" -ResourceGroupName $ResourceGroupName -Name "$("pip-apim-ampls-" + $environment)")
     New-AzTag -ResourceId $linkScope.Id -Tag $tags
-    $appins = (Get-AzApplicationInsights -ResourceGroupName $ResourceGroupName -name "$("hmi-sharedinfra-appins-" + $environment)")
+    $appins = (Get-AzApplicationInsights -ResourceGroupName $ResourceGroupName -name "$("pip-sharedinfra-appins-" + $environment)")
 
     Write-Host "Add Azure Monitor Resource"
     New-AzInsightsPrivateLinkScopedResource -LinkedResourceId $workspaceId -Name $workspaceName -ResourceGroupName $ResourceGroupName -ScopeName $linkScope.Name
@@ -68,9 +68,9 @@ if(!(Get-AzInsightsPrivateLinkScope -Name "$("hmi-apim-ampls-" + $environment)" 
     $linkedResource = Get-AzPrivateLinkResource -PrivateLinkResourceId $PrivateLinkResourceId
 
     $group = @("azuremonitor")
-    $privateEndpointConnection = New-AzPrivateLinkServiceConnection -GroupId $group -Name "$("hmi-privatelink-" + $environment)" -PrivateLinkServiceId $linkScope.Id
+    $privateEndpointConnection = New-AzPrivateLinkServiceConnection -GroupId $group -Name "$("pip-privatelink-" + $environment)" -PrivateLinkServiceId $linkScope.Id
 
-    $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name "$("hmi-privateendpoint-" + $environment)" -Location "uksouth" -Subnet $subnet -PrivateLinkServiceConnection $privateEndpointConnection
+    $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name "$("pip-privateendpoint-" + $environment)" -Location "uksouth" -Subnet $subnet -PrivateLinkServiceConnection $privateEndpointConnection
     New-AzTag -ResourceId $privateEndpoint.Id -Tag $tags
     New-AzTag -ResourceId $privateEndpoint.NetworkInterfaces.Id -Tag $tags
 
@@ -95,7 +95,7 @@ if(!(Get-AzInsightsPrivateLinkScope -Name "$("hmi-apim-ampls-" + $environment)" 
 
     Write-Host "Linking DNS Zones to endpoint..."
     $PrivateDnsZoneGroup = New-AzPrivateDnsZoneGroup -ResourceGroupName $ResourceGroupName `
-    -PrivateEndpointName "$("hmi-privateendpoint-" + $environment)" `
+    -PrivateEndpointName "$("pip-privateendpoint-" + $environment)" `
     -name "azure-monitor-dns-zone" `
     -PrivateDnsZoneConfig $zoneConfigs -Force
 

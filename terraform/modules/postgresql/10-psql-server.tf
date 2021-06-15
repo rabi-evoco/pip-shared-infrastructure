@@ -1,5 +1,5 @@
-resource "azurerm_postgresql_server" "hmi_pact" {
-  name                = "hmi-pact-broker-${var.environment}"
+resource "azurerm_postgresql_server" "pip_pact" {
+  name                = "pip-pact-broker-${var.environment}"
   resource_group_name = var.resource_group
   location            = var.location
   tags                = var.tags

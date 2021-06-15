@@ -1,6 +1,6 @@
 data "azurerm_key_vault" "shared_keyvault" {
-  name                = "hmi-shared-kv-${var.environment}"
-  resource_group_name = "hmi-sharedservices-${var.environment}-rg"
+  name                = "pip-shared-kv-${var.environment}"
+  resource_group_name = "pip-sharedservices-${var.environment}-rg"
 }
 
 resource "azurerm_key_vault_secret" "instrumentation_key" {

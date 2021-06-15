@@ -22,7 +22,7 @@ parameters:
 variables:
   - group: HMI-APIM-Common
   - name: product
-    value: 'hmi'
+    value: 'pip'
   - name: businessArea
     value: 'Cross-Cutting'
   - name: builtFrom

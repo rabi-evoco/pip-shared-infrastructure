@@ -30,7 +30,7 @@ steps:
     backendAzureRmResourceGroupLocation: ${{ parameters.location }}
     backendAzureRmStorageAccountName: ${{ parameters.storageAccount }}
     backendAzureRmContainerName: ${{ parameters.containerName }}
-    backendAzureRmKey: hmishared/${{ parameters.environment }}.tfstate
+    backendAzureRmKey: pipshared/${{ parameters.environment }}.tfstate
 
 - task: TerraformCLI@0
   displayName: Terraform validate
