@@ -20,7 +20,7 @@ parameters:
       subscription: DTS-SHAREDSERVICES-PROD
 
 variables:
-  - group: HMI-APIM-Common
+  - group: PIP-APIM-Common
   - name: product
     value: 'pip'
   - name: businessArea

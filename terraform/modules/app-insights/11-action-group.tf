@@ -4,7 +4,7 @@ resource "azurerm_monitor_action_group" "pip-action-group" {
   short_name          = "pip-support"
 
   email_receiver {
-    name          = "HMI Support Mailing List"
+    name          = "PIP Support Mailing List"
     email_address = var.support_email
   }
 

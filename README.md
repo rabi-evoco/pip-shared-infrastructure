@@ -1,5 +1,5 @@
 # pip-apim-infrastructure
-Repository for deploying support infrastructure for HMI APIM
+Repository for deploying support infrastructure for PIP APIM
 
 
 ### Monitoring and Alerting:
