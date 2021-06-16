@@ -1,6 +1,6 @@
 location      = "uksouth"
-project       = "pip-sharedinfra"
-support_email = "pip-team@HMCTS.NET"
+project       = "hmi-sharedinfra"
+support_email = "hmi-team@HMCTS.NET"
 apim_nsg_rules = [
   { name = "ManagementEndpointForAzurePortalAndPowershellInbound" },
   { name = "SecureClientCommunicationToAPIManagementInbound" },
