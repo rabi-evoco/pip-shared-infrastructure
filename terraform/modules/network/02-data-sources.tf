@@ -4,7 +4,7 @@ data "azurerm_network_watcher" "network_watcher" {
 }
 
 data "azurerm_log_analytics_workspace" "hmcts" {
-  provider            = azurerm.log-analytics-subscription
+  provider            = var.log-analytics-subscription_id
   name                = var.log_analytics_workspace_name
   resource_group_name = var.log_analytics_workspace_rg
 }

@@ -9,7 +9,7 @@ provider "azurerm" {
 }
 
 provider "azurerm" {
-  subscription_id = var.log_analytics_subscription_id
+  subscription_id = "bf308a5c-0624-4334-8ff8-8dca9fd43783"
   alias           = "log-analytics-subscription"
   version         = ">=2.0.0"
   features {}
