@@ -1,5 +1,5 @@
-address_space           = ["10.101.1.64/26"]
-subnet_address_prefixes = ["10.101.1.64/27", "10.101.1.96/27"]
+address_space           = ["10.101.4.64/26"]
+subnet_address_prefixes = ["10.101.4.64/27", "10.101.4.96/27"]
 route_table = [
   {
     name                   = "ss_dev_aks"
