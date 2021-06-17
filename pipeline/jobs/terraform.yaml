@@ -61,7 +61,7 @@ jobs:
       resourceGroup: $(resourceGroup)
       environment: ${{ parameters.environment }}
       builtFrom: ${{ parameters.builtFrom }}
-      project: ${{ parameters.product }}
+      project: ${{ parameters.project }}
   - template: ../steps/tf-apply.yaml
     parameters:
       subscription: ${{ parameters.subscription }}
