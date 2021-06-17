@@ -34,4 +34,4 @@ steps:
         -var "la_prod_sub_id=$(la-prod-sub-id)"
         -var "la_sbox_sub_id=$(la-sbox-sub-id)"
         -var "builtFrom=${{ parameters.builtFrom }} "
-        -var "project=${{ parameters.product }}"
+        -var "project=${{ parameters.project }}"
