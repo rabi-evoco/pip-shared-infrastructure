@@ -30,7 +30,7 @@ steps:
         -out="tfplan-${{ parameters.environment }}"
         -var "resource_group=${{ parameters.resourceGroup }}"
         -var "environment=${{ parameters.environment }}"
-        -var "la_nonprod_sub_id=$(la-nonprod-sub-id)"
+        -var "la_nonprod_sub_id=$(la_nonprod_sub_id)"
         -var "la_prod_sub_id=$(la-prod-sub-id)"
         -var "la_sbox_sub_id=$(la-sbox-sub-id)"
         -var "builtFrom=${{ parameters.builtFrom }} "
