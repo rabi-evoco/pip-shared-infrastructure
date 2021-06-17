@@ -31,7 +31,7 @@ parameters:
     type: string
     default: ''
 
-  - name: project
+  - name: product
     type: string
     default: ''
 
