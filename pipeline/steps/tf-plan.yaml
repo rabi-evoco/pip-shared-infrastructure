@@ -33,5 +33,5 @@ steps:
         -var "la_nonprod_sub_id=$(la_nonprod_sub_id)"
         -var "la_prod_sub_id=$(la-prod-sub-id)"
         -var "la_sbox_sub_id=$(la-sbox-sub-id)"
-        -var "builtFrom=${{ parameters.builtFrom }} "
+        -var "builtFrom=${{ parameters.builtFrom }}"
         -var "project=${{ parameters.project }}"
