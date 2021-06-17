@@ -21,7 +21,7 @@ parameters:
 
 variables:
   - group: PIP-APIM-Common
-  - name: product
+  - name: project
     value: 'pip'
   - name: businessArea
     value: 'Cross-Cutting'
@@ -59,7 +59,7 @@ stages:
         storageAccount: $(storageAccount)
         containerName: $(containerName)
         builtFrom: ${{ variables.builtFrom }}
-        product: ${{ variables.product }}
+        project: ${{ variables.product }}
         variables:
           resourceGroup: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.resourceGroup']]
           storageAccount: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.storageAccount']]
