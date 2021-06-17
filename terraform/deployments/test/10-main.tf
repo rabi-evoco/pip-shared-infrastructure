@@ -20,7 +20,7 @@ module "postgresql" {
   environment    = var.environment
   resource_group = var.resource_group
   location       = var.location
-  product        = var.product
+  project        = var.project
   tags           = var.tags
   subnet_id      = module.network.apim_subnet_id
 }
