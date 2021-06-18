@@ -30,9 +30,7 @@ steps:
     inlineScript: |
       echo "Updating KeyVault Permissions"
       az keyvault set-policy --name pip-shared-kv-${{ parameters.environment }} --object-id $(getspid.spid) --secret-permissions backup delete get list purge recover restore set
-- task: Bash@3
-  displayName: Set pact Secret
-  inputs: 
-    inlineScript: |
-      az keyvault secret set --vault-name pip-shared-kv-${{ parameters.environment }} --name "pact-db-password" --value "akjshfu765uw" 
+      echo "setting pact secret"
+      az keyvault secret set --vault-name pip-shared-kv-${{ parameters.environment }} --name "pact-db-password" --value "akjshfu765uw"
+       
       
