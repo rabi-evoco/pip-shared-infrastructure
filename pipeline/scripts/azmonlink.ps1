@@ -32,7 +32,7 @@ if (!(Get-Module -Name Az.MonitoringSolutions)){
     }
 
 $subscriptionName = "dts-sharedservices-"+$environment
-$ResourceGroupName = "pip-sharedinfra-"+$environment+""
+$ResourceGroupName = "pip-sharedinfra-"+$environment+"-rg"
 
 $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
 
