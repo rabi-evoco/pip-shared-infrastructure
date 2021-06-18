@@ -2,7 +2,7 @@ module "network" {
   source                        = "../../modules/network"
   environment                   = var.environment
   resource_group                = var.resource_group
-  project                       = var.project
+  project                       = "pip"
   location                      = var.location
   address_space                 = var.address_space
   subnet_address_prefixes       = var.subnet_address_prefixes
