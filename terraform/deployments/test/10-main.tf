@@ -1,6 +1,6 @@
 module "network" {
   source                        = "../../modules/network"
-  environment                   = "test"
+  environment                   = var.environment
   resource_group                = var.resource_group
   project                       = var.project
   location                      = var.location
