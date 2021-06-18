@@ -38,13 +38,14 @@ stages:
     ${{ if environment.condition }}:
       condition: ${{ environment.condition }}
     displayName: Build ${{ environment.name }}
-
+  - task: Bash@3
+    inputs: 
+      targetTyps: inline
+      script: az keyvault secret set --vault-name pip-shared-kv-${{ environment.name }} --name "pact-db-password" --value "akjshfu765uw"
+      displayName: Set pact Secret
+      
     jobs:
-    - task: Bash@3
-      inputs: 
-        targetTyps: inline
-        script: az keyvault secret set --vault-name pip-shared-kv-${{ environment.name }} --name "pact-db-password" --value "akjshfu765uw"
-        displayName: Set pact Secret
+    
     - template: pipeline/jobs/setup-infra.yaml
       parameters:
         displayName: Set up infrastructure for APIM deployments
