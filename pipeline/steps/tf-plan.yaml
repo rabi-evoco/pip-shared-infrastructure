@@ -17,8 +17,7 @@ parameters:
     default: ''
 
 steps:
-  - bash: echo "${{ parameters.resourceGroup }}"
-    displayName: echo RG
+
   - task: TerraformCLI@0
     displayName: Terraform plan
     inputs:
