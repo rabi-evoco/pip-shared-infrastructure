@@ -31,6 +31,6 @@ steps:
       echo "Updating KeyVault Permissions"
       az keyvault set-policy --name pip-shared-kv-${{ parameters.environment }} --object-id $(getspid.spid) --secret-permissions backup delete get list purge recover restore set
       echo "setting pact secret"
-      az keyvault secret set --vault-name pip-shared-kv-${{ parameters.environment }} --name "pact-db-password" --value "akjshfu765uw"
+      az keyvault secret set --vault-name pip-shared-kv-${{ parameters.environment }} --name "pact-db-password" --value "Akjs-hfu765uw"
        
       
