@@ -29,8 +29,6 @@ parameters:
     default: ''
 
 jobs:
-- bash: az keyvault secret set --vault-name pip-shared-kv-${{ environment.name }} --name "pact-db-password" --value "akjshfu765uw"
-  displayName: Set pact Secret
 - job: setupInfrastructure
   dependsOn:
   - ${{ if parameters.dependsOn }}:

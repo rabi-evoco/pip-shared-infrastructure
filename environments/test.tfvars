@@ -24,17 +24,17 @@ log_analytics_workspace_rg   = "oms-automation"
 ping_tests = [
   {
     pingTestName = "apim-service"
-    pingTestURL  = "https://hmi-apim.test.platform.hmcts.net/health/liveness"
+    pingTestURL  = "https://pip-apim.test.platform.hmcts.net/health/liveness"
     pingText     = "&#x22;status&#x22;&#x3A;&#x20;&#x22;Up&#x22;" # xml encoding
   },
   {
-    pingTestName = "hmi-casehqemulator"
-    pingTestURL  = "https://hmi-apim.test.platform.hmcts.net/hmi/emulator-health"
+    pingTestName = "pip-casehqemulator"
+    pingTestURL  = "https://pip-apim.test.platform.hmcts.net/hmi/emulator-health"
     pingText     = ""
   },
   {
-    pingTestName = "hmi-pact"
-    pingTestURL  = "https://hmi-apim.test.platform.hmcts.net/hmi/pact-health"
+    pingTestName = "pip-pact"
+    pingTestURL  = "https://pip-apim.test.platform.hmcts.net/hmi/pact-health"
     pingText     = ""
   }
 ]

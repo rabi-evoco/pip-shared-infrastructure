@@ -1,6 +1,6 @@
 data "azurerm_key_vault" "shared_keyvault" {
   name                = "pip-shared-kv-${var.environment}"
-  resource_group_name = "pip-sharedservices-${var.environment}-rg"
+  resource_group_name = "pip-sharedservicesazurerm_key_vault-${var.environment}-rg"
 }
 
 resource "azurerm_key_vault_secret" "instrumentation_key" {
