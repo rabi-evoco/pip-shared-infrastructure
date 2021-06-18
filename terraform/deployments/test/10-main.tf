@@ -30,7 +30,7 @@ module "app-insights" {
   environment    = var.environment
   resource_group = var.resource_group
   location       = var.location
-  project        = var.project
+  project        = "pip"
   support_email  = var.support_email
   ping_tests     = var.ping_tests
   tags           = var.tags
