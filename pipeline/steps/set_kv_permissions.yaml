@@ -34,5 +34,5 @@ steps:
   displayName: Set pact Secret
   inputs: 
     inlineScript: |
-      az keyvault secret set --vault-name pip-shared-kv-${{ environment.name }} --name "pact-db-password" --value "akjshfu765uw" 
+      az keyvault secret set --vault-name pip-shared-kv-${{ parameters.environment }} --name "pact-db-password" --value "akjshfu765uw" 
       
