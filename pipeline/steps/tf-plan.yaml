@@ -17,7 +17,8 @@ parameters:
     default: ''
 
 steps:
-
+  - bash: echo ${{ parameters.environment }} && echo ${{ parameters.project }}
+    displayName: echo params
   - task: TerraformCLI@0
     displayName: Terraform plan
     inputs:
