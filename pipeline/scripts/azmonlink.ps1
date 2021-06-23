@@ -63,7 +63,12 @@ if(!(Get-AzInsightsPrivateLinkScope -Name "$("pip-apim-ampls-" + $environment)" 
     New-AzInsightsPrivateLinkScopedResource -LinkedResourceId $workspaceId -Name $workspaceName -ResourceGroupName $ResourceGroupName -ScopeName $linkScope.Name
     New-AzInsightsPrivateLinkScopedResource -LinkedResourceId $appins.Id -Name $appins.Name -ResourceGroupName $ResourceGroupName -ScopeName $linkScope.Name
 
+    Write-Host "Disable Private Endpoint Policies"
+    ($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).PrivateEndpointNetworkPolicies = "Disabled" 
+    $virtualNetwork | Set-AzVirtualNetwork 
+
     Write-Host "Set up Private Endpoint Connection"
+
     $PrivateLinkResourceId = "/subscriptions/"+$subscriptionId+"/resourceGroups/"+$ResourceGroupName+"/providers/microsoft.insights/privateLinkScopes/"+$linkScope.Name
     $linkedResource = Get-AzPrivateLinkResource -PrivateLinkResourceId $PrivateLinkResourceId
 
