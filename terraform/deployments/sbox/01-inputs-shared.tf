@@ -5,4 +5,7 @@ variable "product" {}
 variable "location" {}
 variable "support_email" {}
 variable "ping_tests" {}
-variable "builtFrom" {}
+variable "builtFrom" {
+  type        = string
+  description = "Build pipeline"
+}

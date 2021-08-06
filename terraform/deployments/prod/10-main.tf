@@ -9,7 +9,7 @@ module "network" {
   apim_nsg_rules                = var.apim_nsg_rules
   apim_rules                    = var.apim_rules
   route_table                   = var.route_table
-  tags                          = var.tags
+  tags                          = local.common_tags
   log_analytics_workspace_name  = var.log_analytics_workspace_name
   log_analytics_workspace_rg    = var.log_analytics_workspace_rg
   log_analytics_subscription_id = var.la_prod_sub_id
@@ -23,5 +23,5 @@ module "app-insights" {
   product        = var.product
   support_email  = var.support_email
   ping_tests     = var.ping_tests
-  tags           = var.tags
+  tags           = local.common_tags
 }
