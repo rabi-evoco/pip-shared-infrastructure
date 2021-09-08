@@ -1,10 +1,14 @@
 
+locals {
+  storage_account_name = "pipsharedinfrasa${var.env}"
+}
+
 module "sa" {
   source = "git::https://github.com/hmcts/cnp-module-storage-account.git?ref=master"
 
   env = var.env
 
-  storage_account_name = "pipsharedinfrasa${var.env}"
+  storage_account_name = local.storage_account_name
   common_tags          = var.common_tags
 
   resource_group_name = var.resource_group_name
@@ -17,4 +21,9 @@ module "sa" {
 
   team_name    = "PIP DevOps"
   team_contact = "#vh-devops"
+}
+
+resource "azurerm_storage_table" "example" {
+  name                 = "distributionlist"
+  storage_account_name = azurerm_storage_account.example.name
 }
