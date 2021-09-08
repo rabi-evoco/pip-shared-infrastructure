@@ -25,5 +25,5 @@ module "sa" {
 
 resource "azurerm_storage_table" "example" {
   name                 = "distributionlist"
-  storage_account_name = azurerm_storage_account.example.name
+  storage_account_name = local.storage_account_name
 }
