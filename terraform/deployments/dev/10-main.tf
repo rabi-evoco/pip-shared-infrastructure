@@ -2,7 +2,7 @@ module "network" {
   source                        = "../../modules/network"
   environment                   = var.environment
   resource_group                = var.resource_group
-  product                       = var.product
+  project                       = var.project
   location                      = var.location
   address_space                 = var.address_space
   subnet_address_prefixes       = var.subnet_address_prefixes
@@ -20,7 +20,7 @@ module "postgresql" {
   environment    = var.environment
   resource_group = var.resource_group
   location       = var.location
-  product        = var.product
+  project        = var.project
   tags           = local.common_tags
   subnet_id      = module.network.apim_subnet_id
 }
@@ -30,7 +30,7 @@ module "app-insights" {
   environment    = var.environment
   resource_group = var.resource_group
   location       = var.location
-  product        = var.product
+  project        = var.project
   support_email  = var.support_email
   ping_tests     = var.ping_tests
   tags           = local.common_tags
