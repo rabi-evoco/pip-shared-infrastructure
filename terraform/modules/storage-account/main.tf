@@ -5,9 +5,7 @@ locals {
 data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
 }
-output "ip" {
-  value = "${chomp(data.http.myip.body)}/32"
-}
+
 module "sa" {
   source = "git::https://github.com/hmcts/cnp-module-storage-account.git?ref=master"
 
@@ -29,7 +27,7 @@ module "sa" {
   team_contact = "#vh-devops"
 }
 
-resource "azurerm_storage_table" "example" {
+resource "azurerm_storage_table" "distributionlist" {
   name                 = "distributionlist"
   storage_account_name = local.storage_account_name
 }
