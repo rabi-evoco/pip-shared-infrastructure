@@ -1,16 +1,14 @@
 terraform {
-  required_version = ">= 0.12.0"
-  backend "azurerm" {}
-}
+  //backend "azurerm" {}
 
-provider "azurerm" {
-  version = ">=2.0.0"
-  features {}
+  required_version = ">= 1.0.4"
+  required_providers {
+    azurerm = ">=2.0.0"
+  }
 }
 
 provider "azurerm" {
   subscription_id = var.log_analytics_subscription_id
   alias           = "log-analytics-subscription"
-  version         = ">=2.0.0"
   features {}
 }
