@@ -11,6 +11,8 @@ module "sa" {
   storage_account_name = local.storage_account_name
   common_tags          = var.common_tags
 
+  default_action = "Allow"
+
   resource_group_name = var.resource_group_name
   location            = var.location
 
@@ -23,7 +25,10 @@ module "sa" {
   team_contact = "#vh-devops"
 }
 
-resource "azurerm_storage_table" "example" {
+resource "azurerm_storage_table" "distributionlist" {
   name                 = "distributionlist"
   storage_account_name = local.storage_account_name
+  depends_on = [
+    module.sa
+  ]
 }

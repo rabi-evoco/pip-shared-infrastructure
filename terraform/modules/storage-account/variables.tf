@@ -18,7 +18,7 @@ variable "sa_access_tier" {
 }
 variable "sa_account_kind" {
   type    = string
-  default = "BlobStorage"
+  default = "StorageV2"
 }
 variable "sa_account_tier" {
   type    = string
