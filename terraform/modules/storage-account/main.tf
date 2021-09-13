@@ -25,9 +25,15 @@ module "sa" {
 
   team_name    = "PIP DevOps"
   team_contact = "#vh-devops"
+  dependsOn = [
+    data.http.myip
+  ]
 }
 
 resource "azurerm_storage_table" "distributionlist" {
   name                 = "distributionlist"
   storage_account_name = local.storage_account_name
+  dependsOn = [
+    module.sa
+  ]
 }
