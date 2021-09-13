@@ -2,9 +2,6 @@
 locals {
   storage_account_name = "pipsharedinfrasa${var.env}"
 }
-data "http" "myip" {
-  url = "http://ipv4.icanhazip.com"
-}
 
 module "sa" {
   source = "git::https://github.com/hmcts/cnp-module-storage-account.git?ref=master"
@@ -13,7 +10,8 @@ module "sa" {
 
   storage_account_name = local.storage_account_name
   common_tags          = var.common_tags
-  ip_rules             = ["${chomp(data.http.myip.body)}"]
+
+  default_action = "Allow"
 
   resource_group_name = var.resource_group_name
   location            = var.location
@@ -25,9 +23,6 @@ module "sa" {
 
   team_name    = "PIP DevOps"
   team_contact = "#vh-devops"
-  dependsOn = [
-    data.http.myip
-  ]
 }
 
 resource "azurerm_storage_table" "distributionlist" {
