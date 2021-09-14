@@ -58,6 +58,8 @@ jobs:
       resourceGroup: $(resourceGroup)
       storageAccount: $(storageAccount)
       containerName: $(containerName)
+  - bash: |
+      echo "la sub ${{ parameters.laSubId }}"
   - template: ../steps/tf-plan.yaml
     parameters:
       subscription: ${{ parameters.subscription }}
