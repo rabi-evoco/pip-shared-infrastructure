@@ -64,6 +64,7 @@ stages:
           resourceGroup: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.resourceGroup']]
           storageAccount: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.storageAccount']]
           containerName: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.containerName']]
+          group: PIP-APIM-BUILD-${{ upper(parameters.environment) }}
 
     - template: pipeline/jobs/setup-azmonlink.yaml
       parameters:
