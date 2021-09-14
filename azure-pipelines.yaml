@@ -62,6 +62,7 @@ stages:
         containerName: $(containerName)
         builtFrom: ${{ variables.builtFrom }}
         product: ${{ variables.product }}
+        laSubId: ${{ variables.la_sub_id }}
         variables:
           resourceGroup: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.resourceGroup']]
           storageAccount: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.storageAccount']]

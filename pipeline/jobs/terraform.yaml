@@ -35,6 +35,9 @@ parameters:
     type: string
     default: ''
 
+  - name: laSubId
+    type: string
+
 jobs:
 - job: Terraform
   dependsOn:
@@ -62,7 +65,7 @@ jobs:
       environment: ${{ parameters.environment }}
       builtFrom: ${{ parameters.builtFrom }}
       product: ${{ parameters.product }}
-      laSubId: ${{ variables.la_sub_id }}
+      laSubId: ${{ parameters.laSubId }}
   - template: ../steps/tf-apply.yaml
     parameters:
       subscription: ${{ parameters.subscription }}

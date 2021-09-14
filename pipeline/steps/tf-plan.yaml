@@ -18,7 +18,6 @@ parameters:
 
   - name: laSubId
     type: string
-    default: ''
 
 steps:
 
