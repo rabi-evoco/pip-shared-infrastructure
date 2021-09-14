@@ -16,6 +16,10 @@ parameters:
     type: string
     default: ''
 
+  - name: laSubId
+    type: string
+    default: ''
+
 steps:
 
   - task: TerraformCLI@0
@@ -29,5 +33,5 @@ steps:
         -var-file="../../environments/shared.tfvars"
         -out="tfplan-${{ parameters.environment }}"
         -var "environment=${{ parameters.environment }}"
-        -var "la_sub_id=$(la_sub_id)"
+        -var "la_sub_id=${{ parameters.laSubId }}"
         -var "builtFrom=${{ parameters.builtFrom }} "
