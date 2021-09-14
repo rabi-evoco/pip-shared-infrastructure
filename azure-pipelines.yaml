@@ -50,15 +50,7 @@ stages:
         builtFrom: ${{ variables.builtFrom }}
         businessArea: ${{ variables.businessArea }}
         application: ${{ variables.application }}
-
-    - job: printer
-      displayName: 'printer'
-      pool:
-        vmImage: 'ubuntu-20.04'
-      steps:
-      - bash: |
-          echo "la sub $(log_analytics_subscription_id)"
-
+        
     - template: pipeline/jobs/terraform.yaml
       parameters:
         displayName: Build Infrastructure with Terraform
@@ -70,7 +62,7 @@ stages:
         containerName: $(containerName)
         builtFrom: ${{ variables.builtFrom }}
         product: ${{ variables.product }}
-        laSubId: $[ variables.log_analytics_subscription_id ]
+        laSubId: $(log_analytics_subscription_id)
         variables:
           resourceGroup: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.resourceGroup']]
           storageAccount: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.storageAccount']]
