@@ -51,7 +51,7 @@ stages:
         businessArea: ${{ variables.businessArea }}
         application: ${{ variables.application }}
 
-    - job: Terraform
+    - job: printer
       displayName: 'printer'
       pool:
         vmImage: 'ubuntu-20.04'
@@ -59,7 +59,7 @@ stages:
       - bash: |
           echo "la sub ${{ variables.log_analytics_subscription_id }}"
           echo "la v2 $[ variables.log_analytics_subscription_id ]"
-          
+
     - template: pipeline/jobs/terraform.yaml
       parameters:
         displayName: Build Infrastructure with Terraform
