@@ -39,7 +39,7 @@ stages:
       condition: ${{ environment.condition }}
     displayName: Build ${{ environment.name }}
     variables:
-      - group: PIP-APIM-BUILD-${{ upper(parameters.environment) }}
+      - group: PIP-APIM-BUILD-${{ upper(environment.name) }}
 
     jobs:
     - template: pipeline/jobs/setup-infra.yaml
