@@ -27,7 +27,7 @@ jobs:
   displayName: ${{ parameters.displayName }}
   pool:
     vmImage: 'ubuntu-20.04'
-  varaibles:
+  variables:
     - group: PIP-APIM-BUILD-${{ upper(parameters.environment) }}
   steps:
   - task: AzurePowerShell@5
