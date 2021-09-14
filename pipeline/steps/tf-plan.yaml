@@ -22,11 +22,11 @@ steps:
     displayName: Terraform plan
     inputs:
       command: plan
-      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/deployments/${{ parameters.environment }}
+      workingDirectory: $(System.DefaultWorkingDirectory)/terraform/deployments
       environmentServiceName: ${{ parameters.subscription }}
       commandOptions: >
-        -var-file="../../../environments/${{ parameters.environment }}.tfvars"
-        -var-file="../../../environments/shared.tfvars"
+        -var-file="../../environments/${{ parameters.environment }}.tfvars"
+        -var-file="../../environments/shared.tfvars"
         -out="tfplan-${{ parameters.environment }}"
         -var "environment=${{ parameters.environment }}"
         -var "la_sub_id=$(la_sub_id)"
