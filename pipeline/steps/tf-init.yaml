@@ -23,7 +23,7 @@ steps:
   displayName: Terraform init
   inputs:
     command: init
-    workingDirectory: $(System.DefaultWorkingDirectory)/terraform/deployments/${{ parameters.environment }}
+    workingDirectory: $(System.DefaultWorkingDirectory)/terraform/deployments
     backendType: azurerm
     backendServiceArm: ${{ parameters.subscription }}
     backendAzureRmResourceGroupName: ${{ parameters.resourceGroup }}
@@ -36,4 +36,4 @@ steps:
   displayName: Terraform validate
   inputs:
     command: validate
-    workingDirectory: $(System.DefaultWorkingDirectory)/terraform/deployments/${{ parameters.environment }}
+    workingDirectory: $(System.DefaultWorkingDirectory)/terraform/deployments

@@ -38,6 +38,8 @@ stages:
     ${{ if environment.condition }}:
       condition: ${{ environment.condition }}
     displayName: Build ${{ environment.name }}
+    variables:
+      - group: PIP-APIM-BUILD-${{ upper(environment.name) }}
 
     jobs:
     - template: pipeline/jobs/setup-infra.yaml
@@ -48,7 +50,7 @@ stages:
         builtFrom: ${{ variables.builtFrom }}
         businessArea: ${{ variables.businessArea }}
         application: ${{ variables.application }}
-
+        
     - template: pipeline/jobs/terraform.yaml
       parameters:
         displayName: Build Infrastructure with Terraform
@@ -60,6 +62,7 @@ stages:
         containerName: $(containerName)
         builtFrom: ${{ variables.builtFrom }}
         product: ${{ variables.product }}
+        laSubId: $(log_analytics_subscription_id)
         variables:
           resourceGroup: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.resourceGroup']]
           storageAccount: $[dependencies.setupInfrastructure.outputs['setupResourceGroup.storageAccount']]
