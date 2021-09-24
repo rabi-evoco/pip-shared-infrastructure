@@ -72,13 +72,13 @@ stages:
             displayName: 'Shared Infrastructure'
             resourceGroupName: 'sharedinfra'
             resourcePrefix: 'pipapim'
-            terraformVersion: ${{ variabels.terraformVersion }}
+            terraformVersion: ${{ variables.terraformVersion }}
         - ${{ if or(eq(parameters.deployTo, 'all-services'), eq(parameters.deployTo, 'SharedServies'))}}:
           - name: SharedServies
             displayName: 'Shared Services'
             resourceGroupName: 'sharedservices-state'
             resourcePrefix: 'pipss'
-            terraformVersion: ${{ variabels.terraformVersion }}
+            terraformVersion: ${{ variables.terraformVersion }}
 
   - template: pipeline/stages/wait.yaml
     parameters:
@@ -104,13 +104,13 @@ stages:
             displayName: 'Shared Infrastructure'
             resourceGroupName: 'sharedinfra'
             resourcePrefix: 'pipapim'
-            terraformVersion: ${{ variabels.terraformVersion }}
+            terraformVersion: ${{ variables.terraformVersion }}
         - ${{ if or(eq(parameters.deployTo, 'all-services'), eq(parameters.deployTo, 'SharedServies'))}}:
           - name: SharedServies
             displayName: 'Shared Services'
             resourceGroupName: 'sharedservices-state'
             resourcePrefix: 'pipss'
-            terraformVersion: ${{ variabels.terraformVersion }}
+            terraformVersion: ${{ variables.terraformVersion }}
 
   - template: pipeline/stages/apply.yaml
     parameters:
@@ -136,11 +136,11 @@ stages:
             displayName: 'Shared Infrastructure'
             resourceGroupName: 'sharedinfra'
             resourcePrefix: 'pipapim'
-            terraformVersion: ${{ variabels.terraformVersion }}
+            terraformVersion: ${{ variables.terraformVersion }}
         - ${{ if or(eq(parameters.deployTo, 'all-services'), eq(parameters.deployTo, 'SharedServies'))}}:
           - name: SharedServies
             displayName: 'Shared Services'
             resourceGroupName: 'sharedservices-state'
             resourcePrefix: 'pipss'
-            terraformVersion: ${{ variabels.terraformVersion }}
+            terraformVersion: ${{ variables.terraformVersion }}
 
