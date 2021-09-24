@@ -14,8 +14,6 @@ module "ctags" {
   builtFrom   = var.builtFrom
 }
 
-data "azurerm_client_config" "current" {}
-
 resource "azurerm_resource_group" "rg" {
   name     = local.resource_group_name
   location = var.location
