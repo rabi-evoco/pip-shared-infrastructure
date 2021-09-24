@@ -24,15 +24,6 @@ variable "active_directory_group" {
   default     = "DTS PIP"
 }
 
-variable "secure_file_json_path" {
-  type        = string
-  description = "Exported Secure File JSON Path"
-}
-variable "variable_group_json_path" {
-  type        = string
-  description = "Exported Azure DevOps Variable Group JSON Path"
-}
-
 variable "service_now_client" {
   type        = string
   description = "Service Now Client"
