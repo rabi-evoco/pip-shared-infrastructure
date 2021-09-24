@@ -30,8 +30,6 @@ steps:
       variables="${variables} -out=\"${{ parameters.outputLocation }}\""
       variables="${variables} -var \"builtFrom=${{ parameters.builtFrom }} \""
       variables="${variables} -var \"product=${{ parameters.product }}\""
-      variables="${variables} -var \"service_now_client=${service_now_client}\""
-      variables="${variables} -var \"service_now_secret=${service_now_secret}\""
 
       echo "Variables set as: "
       echo "${variables}"
@@ -39,5 +37,3 @@ steps:
     displayName: 'Set Shared Services TF Variables'
     name: tfVariables
     env:
-      service_now_client: $(service_now_client)
-      service_now_secret: $(service_now_secret)

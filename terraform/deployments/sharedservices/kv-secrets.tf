@@ -71,18 +71,6 @@ module "keyvault_secrets" {
         "purpose"       = "pactbrokerdb"
       }
       content_type = ""
-    },
-    {
-      name         = "pip-servicenow-client"
-      value        = var.service_now_client
-      tags         = {}
-      content_type = ""
-    },
-    {
-      name         = "pip-servicenow-secret"
-      value        = var.service_now_secret
-      tags         = {}
-      content_type = ""
     }
   ]
 
