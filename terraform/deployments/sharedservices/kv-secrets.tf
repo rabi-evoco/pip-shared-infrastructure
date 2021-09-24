@@ -19,10 +19,7 @@ resource "random_password" "pact_db_password" {
   min_numeric = 2
   min_special = 2
 }
-data "azurerm_application_insights" "appin" {
-  name                = "pip-sharedinfra-appins-${var.environment}"
-  resource_group_name = local.shared_infra_resource_group_name
-}
+
 
 module "keyvault_secrets" {
   source = "../../modules/key-vault/secret"
@@ -30,12 +27,6 @@ module "keyvault_secrets" {
   key_vault_id = module.kv.key_vault_id
   tags         = local.common_tags
   secrets = [
-    {
-      name         = "appins-instrumentation-key"
-      value        = data.azurerm_application_insights.appin.instrumentation_key
-      tags         = {}
-      content_type = ""
-    },
     {
       name         = "${local.shared_storage_name}-storageaccount-key"
       value        = module.shared_storage.primary_access_key
