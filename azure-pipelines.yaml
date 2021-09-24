@@ -56,16 +56,16 @@ stages:
           dependency: 'CIBuild'
         - name: dev
           subscription: DTS-SHAREDSERVICES-DEV
-          dependency: 'CIBuild'
+          dependency: 'sbox'
         - name: test
           subscription: DTS-SHAREDSERVICES-TEST
-          dependency: 'CIBuild'
+          dependency: 'dev'
         - name: stg
           subscription: DTS-SHAREDSERVICES-STG
-          dependency: 'CIBuild'
+          dependency: 'test'
         - name: prod
           subscription: DTS-SHAREDSERVICES-PROD
-          dependency: 'CIBuild'
+          dependency: 'stg'
       services: 
         - ${{ if or(eq(parameters.deployTo, 'all-services'), eq(parameters.deployTo, 'SharedInfra'))}}:
           - name: SharedInfra
