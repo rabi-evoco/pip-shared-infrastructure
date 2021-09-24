@@ -36,4 +36,3 @@ steps:
       echo "##vso[task.setvariable variable=$variableName;isOutput=true]${variables}"
     displayName: 'Set Shared Services TF Variables'
     name: tfVariables
-    env:
